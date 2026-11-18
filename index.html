@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0e0e0c" />
+    <title>Md Sajjad — Every release gets a verdict.</title>
+    <style>
+      html.booting,
+      html.booting body {
+        background: #0e0e0c;
+      }
+      html.booting .site {
+        visibility: hidden;
+      }
+    </style>
+    <script>
+      ;(function (d) {
+        try {
+          var saved = localStorage.getItem('theme')
+          var theme =
+            saved === 'light' || saved === 'dark'
+              ? saved
+              : matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+          d.dataset.theme = theme
+          d.style.colorScheme = theme
+        } catch (e) {}
+        try {
+          if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
+          var force = /(?:\?|&)boot=1(?:&|$)/.test(location.search)
+          if (force) sessionStorage.removeItem('booted')
+          if (!force && sessionStorage.getItem('booted')) return
+          if (!force && location.hash) return
+          d.classList.add('booting')
+        } catch (e) {}
+      })(document.documentElement)
+    </script>
+    <meta
+      name="description"
+      content="I engineer quality, automation, and security for AI-powered fintech systems — turning complex software into reliable, production-ready experiences."
+    />
+    <meta property="og:title" content="Md Sajjad — Every release gets a verdict." />
+    <meta
+      property="og:description"
+      content="I engineer quality, automation, and security for AI-powered fintech systems — turning complex software into reliable, production-ready experiences."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="author" content="Md Sajjad" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="boot" class="boot" aria-hidden="true">
+      <main class="boot-card">
+        <header class="boot-card__head">
+          <div class="boot-card__who">
+            <div class="boot-card__av" aria-hidden="true">MS</div>
+            <div><b>Md Sajjad</b> <span>/ fintech.spec.ts</span></div>
+          </div>
+          <div class="boot-card__tags">
+            <span class="boot-card__tag"><i></i>chromium</span>
+            <span class="boot-card__tag"><i></i>webkit</span>
+            <span class="boot-card__tag"><i></i>api</span>
+            <span class="boot-card__tag"><i></i>security</span>
+          </div>
+        </header>
+        <div class="boot-card__body">
+          <section class="boot-card__log">
+            <div class="boot-card__cmd"><em>$</em> npx playwright test fintech.spec.ts --project=all</div>
+            <div id="boot-rows"></div>
+          </section>
+          <section class="boot-card__side">
+            <canvas id="boot-dots" width="400" height="140" aria-label="PASS"></canvas>
+            <div>
+              <div class="boot-card__big"><span id="boot-cnt">0</span><small>of 14 passed</small></div>
+              <div class="boot-card__verdict" id="boot-verdict">Running 14 checks using 4 workers…</div>
+            </div>
+            <div class="boot-card__bar"><div id="boot-progress"></div></div>
+            <button type="button" id="boot-go" disabled>Enter dashboard →</button>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div class="site">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <header class="topbar">
+      <a class="logo" href="#top" aria-label="Md Sajjad home">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span>Md Sajjad</span>
+      </a>
+      <nav class="topbar__nav" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#method">Method</a>
+        <a href="#toolbox">Toolbox</a>
+        <a href="#connect">Connect</a>
+        <a href="https://github.com/imsajju" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/imsajju/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.instagram.com/sajju.ai/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </nav>
+      <div class="topbar__cta">
+        <a class="topbar__action topbar__action--call" href="tel:+917004452594" aria-label="Call now">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z"
+              fill="currentColor"
+            />
+          </svg>
+          Call now
+        </a>
+        <a class="topbar__action" href="mailto:mdsajjaddbg2016@gmail.com">Email</a>
+        <a class="topbar__resume" href="/Md-Sajjad-Resume.pdf" download>Resume</a>
+      </div>
+      <button
+        type="button"
+        class="theme-toggle"
+        id="theme-toggle"
+        aria-label="Switch to dark mode"
+        title="Toggle theme"
+      >
+        <svg class="theme-toggle__moon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M21 14.3A8.5 8.5 0 0 1 9.7 3 7 7 0 1 0 21 14.3z"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <svg class="theme-toggle__sun" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" />
+          <path
+            d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <div class="drawer" id="drawer" hidden>
+      <nav aria-label="Mobile">
+        <a href="#work">Work</a>
+        <a href="#method">Method</a>
+        <a href="#toolbox">Toolbox</a>
+        <a href="#connect">Connect</a>
+        <a href="https://github.com/imsajju" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/imsajju/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.instagram.com/sajju.ai/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="tel:+917004452594">Call now</a>
+        <a href="mailto:mdsajjaddbg2016@gmail.com">Email</a>
+        <a href="/Md-Sajjad-Resume.pdf" download>Resume</a>
+      </nav>
+    </div>
+
+    <section class="hero" id="top">
+      <div class="hero__plane" aria-hidden="true">
+        <div class="hero__mesh"></div>
+        <div class="hero__orb hero__orb--a"></div>
+        <div class="hero__orb hero__orb--b"></div>
+      </div>
+
+      <div class="stage">
+        <p class="badge rise" style="--i: 0">
+          <span class="badge__tag">Now</span>
+          <span class="badge__long">QA Lead · SDET · CISO at Valura.AI</span>
+          <span class="badge__short">QA Lead at Valura.AI</span>
+        </p>
+
+        <p class="hero__brand-line rise" style="--i: 1">Md Sajjad</p>
+        <h1 class="headline rise" style="--i: 2">
+          Every release gets a <em>verdict.</em>
+        </h1>
+
+        <div class="hero__intro rise" style="--i: 3">
+          <p class="sub">
+            I engineer quality, automation, and security for AI-powered fintech systems —
+            turning complex software into reliable, production-ready experiences.
+          </p>
+          <div class="hero__acts">
+            <a class="btn btn--ink" href="#work">See the work</a>
+            <a class="btn btn--ghost" href="/Md-Sajjad-Resume.pdf" download>Download resume</a>
+          </div>
+        </div>
+
+        <div class="recorder rise" style="--i: 4" aria-label="Live visit recorded as an automation script">
+          <div class="recorder__head">
+            <div class="recorder__tabs" role="tablist" aria-label="Script format">
+              <button type="button" role="tab" data-fmt="playwright" aria-selected="true">
+                <span>Playwright</span>fintech.spec.ts
+              </button>
+              <button type="button" role="tab" data-fmt="postman" aria-selected="false">
+                <span>Postman</span>visit.test.js
+              </button>
+              <button type="button" role="tab" data-fmt="pytest" aria-selected="false">
+                <span>PyTest</span>test_visit.py
+              </button>
+            </div>
+            <span class="recorder__rec"
+              ><span class="recorder__dot" aria-hidden="true"></span> REC · your visit, as a test</span
+            >
+          </div>
+
+          <pre class="recorder__code" id="recorder-code" aria-live="polite"><code></code></pre>
+
+          <div class="recorder__foot">
+            <p class="recorder__hint">Nobody is typing this. Hover, click or scroll and watch.</p>
+            <button type="button" class="btn btn--ink" id="full-test-btn">
+              <span class="full-test-label">Full test →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="signals" aria-label="Highlights">
+      <div class="signals__item">
+        <strong>Intern → <em>QA Lead</em></strong>
+        <span>Promoted inside Valura.AI / 2Cents Capital</span>
+      </div>
+      <div class="signals__item">
+        <strong><em>70%</em> less manual QA</strong>
+        <span>Automation + process rebuild org-wide</span>
+      </div>
+      <div class="signals__item">
+        <strong>ISO <em>27001</em></strong>
+        <span>Led certification workstream as CISO</span>
+      </div>
+    </div>
+
+    <aside class="verdict-band" id="verdict" aria-label="Sample release verdict board">
+      <div class="verdict-band__head">
+        <h2>Release <em>verdict.</em></h2>
+        <p>Every gate reports. The build gets one outcome.</p>
+      </div>
+      <div class="verdict" id="verdict-board">
+        <div class="verdict__chrome">
+          <span>Release verdict</span>
+          <span class="verdict__live"><i aria-hidden="true"></i> LIVE</span>
+          <span class="verdict__build" id="verdict-build">BUILD 2.4.5</span>
+        </div>
+        <ul class="verdict__list" id="verdict-list">
+          <li data-k="functional"><b>Functional / E2E</b><span>…</span></li>
+          <li data-k="api"><b>API &amp; data integrity</b><span>…</span></li>
+          <li data-k="sast"><b>SAST</b><span>…</span></li>
+          <li data-k="dast"><b>DAST</b><span>…</span></li>
+          <li data-k="sca"><b>SCA + secrets</b><span>…</span></li>
+          <li data-k="agent"><b>AI agent behavior</b><span>…</span></li>
+          <li data-k="iso"><b>Compliance evidence</b><span>…</span></li>
+        </ul>
+        <div class="verdict__result" id="verdict-result">
+          <span class="verdict__stamp">PENDING</span>
+          <p>Waiting on checks…</p>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main">
+      <section class="block story" id="story">
+        <figure class="story__portrait">
+          <img
+            src="/sajjad.jpg"
+            alt="Md Sajjad, Quality Head at Valura.AI"
+            width="400"
+            height="400"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <div class="story__copy">
+          <p class="eyebrow">Story</p>
+          <h2>Two years as Quality Head at a fast-paced startup.</h2>
+          <div class="story__body">
+            <p>
+              At <strong>Valura.AI</strong>, an AI-native wealth platform moving at startup speed, I lead
+              quality end to end — from intern who wrote the first hundred test cases to the Quality Head
+              who decides whether a build is allowed near production.
+            </p>
+            <p>
+              The job spans Web, APIs, mobile, automation, performance, and security. Playwright and Maestro
+              cut the manual grind. Semgrep, SonarQube, OWASP ZAP, Trivy, and GitLeaks sit in CI as real
+              gates — triaged against OWASP Top 10 and CVE reality, not scanner theatre.
+            </p>
+            <p class="story__pull">
+              Fast teams don’t skip proof. They make proof keep up.
+            </p>
+            <p>
+              I also wear the CISO hat: risk assessments, compliance docs, audit prep — and an ISO 27001
+              certification that actually landed. Same discipline as testing: pipelines and paperwork both
+              have to hold under pressure.
+            </p>
+            <p>
+              The goal is simple — turn quality from a late-stage checklist into the engineering discipline
+              that ships confidence at the pace the product demands.
+            </p>
+          </div>
+          <div class="story__actions">
+            <a class="btn btn--ink" href="/Md-Sajjad-Resume.pdf" download>Download resume</a>
+            <a
+              class="btn btn--ghost"
+              href="https://www.linkedin.com/in/imsajju/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="block work" id="work">
+        <div class="block__rail">
+          <p class="eyebrow">Work</p>
+          <h2>Where the verdicts were made.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="role">
+            <div class="role__when">
+              <time>May 2025 – Present</time>
+              <span>Bengaluru</span>
+            </div>
+            <div class="role__body">
+              <div class="role__head">
+                <a class="role__company" href="https://valura.ai" target="_blank" rel="noopener noreferrer">
+                  <img src="/logos/valura.png" alt="" width="36" height="36" loading="lazy" />
+                  <span>Valura.AI</span>
+                </a>
+                <a class="role__company role__company--sub" href="https://2centscapital.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/logos/2cents.png" alt="" width="28" height="28" loading="lazy" />
+                  <span>2Cents Capital</span>
+                </a>
+              </div>
+              <h3>QA Lead (SDET) &amp; CISO</h3>
+              <ul>
+                <li>Own QA strategy across functional, security, API, performance, and AI-agent validation.</li>
+                <li>Embedded SAST/DAST/SCA and secret scanning into CI quality gates with Ruff for Python services.</li>
+                <li>Lead Playwright and Maestro automation; cut manual testing effort by ~70%.</li>
+                <li>Drove ISO 27001 implementation end-to-end through successful certification.</li>
+                <li>Validate agent and quant outputs across KYC, EFT, and portfolio workflows.</li>
+              </ul>
+              <ul class="role__stack" aria-label="Tech stack">
+                <li><img src="/logos/playwright.svg" alt="" /><span>Playwright</span></li>
+                <li><img src="/logos/maestro.svg" alt="" /><span>Maestro</span></li>
+                <li><img src="/logos/postman.svg" alt="" /><span>Postman</span></li>
+                <li><img src="/logos/python.svg" alt="" /><span>Python</span></li>
+                <li><img src="/logos/semgrep.svg" alt="" /><span>Semgrep</span></li>
+                <li><img src="/logos/sonarqube.svg" alt="" /><span>SonarQube</span></li>
+                <li><img src="/logos/zap.svg" alt="" /><span>OWASP ZAP</span></li>
+                <li><img src="/logos/trivy.svg" alt="" /><span>Trivy</span></li>
+                <li><img src="/logos/github-actions.svg" alt="" /><span>GitHub Actions</span></li>
+                <li><img src="/logos/huly.png" alt="" /><span>Huly</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role__when">
+              <time>Jan 2025 – May 2025</time>
+              <span>Remote · UAE</span>
+            </div>
+            <div class="role__body">
+              <div class="role__head">
+                <a class="role__company" href="https://2centscapital.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/logos/2cents.png" alt="" width="36" height="36" loading="lazy" />
+                  <span>2Cents Capital</span>
+                </a>
+              </div>
+              <h3>Software QA Engineer Intern</h3>
+              <ul>
+                <li>Designed and executed 100+ test cases across UI, API, and functional flows.</li>
+                <li>Defect tracking in Huly and GitHub; UAT, regression, and release summary reporting.</li>
+              </ul>
+              <ul class="role__stack" aria-label="Tech stack">
+                <li><img src="/logos/postman.svg" alt="" /><span>Postman</span></li>
+                <li><img src="/logos/javascript.svg" alt="" /><span>JavaScript</span></li>
+                <li><img src="/logos/git.svg" alt="" /><span>Git</span></li>
+                <li><img src="/logos/github-actions.svg" alt="" /><span>GitHub</span></li>
+                <li><img src="/logos/huly.png" alt="" /><span>Huly</span></li>
+                <li><img src="/logos/jira.svg" alt="" /><span>Jira</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role__when">
+              <time>Mar 2025 – Jun 2025</time>
+              <span>Remote</span>
+            </div>
+            <div class="role__body">
+              <div class="role__head">
+                <a class="role__company" href="https://www.uber.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/logos/uber.svg" alt="" width="36" height="36" loading="lazy" />
+                  <span>Uber</span>
+                </a>
+                <span class="role__via">via Scaled Solutions</span>
+              </div>
+              <h3>Generative AI Evaluator</h3>
+              <ul>
+                <li>Ranked LLM outputs against quality benchmarks for model improvement.</li>
+                <li>Scored AI-generated code for correctness, execution success, and structure.</li>
+              </ul>
+              <ul class="role__stack" aria-label="Tech stack">
+                <li><img src="/logos/llm.svg" alt="" /><span>LLM evaluation</span></li>
+                <li><img src="/logos/python.svg" alt="" /><span>Python</span></li>
+                <li><img src="/logos/javascript.svg" alt="" /><span>JavaScript</span></li>
+                <li><img src="/logos/agent-behavior.svg" alt="" /><span>Agent behavior</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role__when">
+              <time>Mar 2022 – Apr 2022</time>
+              <span>Gurugram</span>
+            </div>
+            <div class="role__body">
+              <div class="role__head">
+                <a class="role__company" href="https://brand2grand.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/logos/brand2grand.png" alt="" width="36" height="36" loading="lazy" />
+                  <span>Brand 2 Grand</span>
+                </a>
+              </div>
+              <h3>Web Developer Intern</h3>
+              <ul>
+                <li>Maintained client sites with HTML, CSS, JavaScript, PHP, and CMS; improved SEO and performance.</li>
+              </ul>
+              <ul class="role__stack" aria-label="Tech stack">
+                <li><img src="/logos/javascript.svg" alt="" /><span>JavaScript</span></li>
+                <li><img src="/logos/git.svg" alt="" /><span>Git</span></li>
+                <li><img src="/logos/mysql.svg" alt="" /><span>MySQL</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="block method" id="method">
+        <div class="block__rail">
+          <p class="eyebrow">Method</p>
+          <h2>How a build earns clearance.</h2>
+        </div>
+
+        <div class="method__grid">
+          <article>
+            <span class="method__n">A</span>
+            <h3>Map risk first</h3>
+            <p>KYC, EFT, portfolio, and agent paths get coverage weighted by blast radius — not by what’s easy to click.</p>
+          </article>
+          <article>
+            <span class="method__n">B</span>
+            <h3>Automate the boring</h3>
+            <p>Playwright and Maestro hold regression. Humans spend time on judgment calls scanners can’t make.</p>
+          </article>
+          <article>
+            <span class="method__n">C</span>
+            <h3>Gate on security</h3>
+            <p>SAST, DAST, SCA, and secrets fail the pipeline when findings are real — after CVE-aware triage.</p>
+          </article>
+          <article>
+            <span class="method__n">D</span>
+            <h3>Interrogate agents</h3>
+            <p>Multi-turn behavior, output ranking, and production-path validation for AI systems that move money.</p>
+          </article>
+          <article>
+            <span class="method__n">E</span>
+            <h3>Leave an audit trail</h3>
+            <p>ISO 27001-ready evidence: risks documented, controls testable, auditors not guessing.</p>
+          </article>
+          <article>
+            <span class="method__n">F</span>
+            <h3>Clear — or stop</h3>
+            <p>Staging and prod verification with a binary outcome. No soft “seems fine.”</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="toolbox" id="toolbox" aria-label="Toolbox">
+        <div class="toolbox__intro">
+          <h2 class="toolbox__title">the toolbox.</h2>
+          <p class="toolbox__lead">
+            Core skills first — Playwright, Postman, Maestro, agentic tools (Claude Code, Cursor, MCP),
+            JavaScript, TypeScript, Python, Git, GitHub, Jira, Semgrep, and ISO 27001.
+            Everything else is what I reach for when the suite needs it.
+          </p>
+        </div>
+
+        <div class="tool-ring" id="tool-ring" aria-hidden="true"></div>
+
+        <div class="toolbox__controls">
+          <div class="toolbox__filters" id="tool-filters" role="tablist" aria-label="Tool categories"></div>
+          <button type="button" class="toolbox__pause" id="tool-pause">Pause the ring</button>
+        </div>
+
+        <div class="toolbox__creds">
+          <div>
+            <h3>Education</h3>
+            <p>B.Tech CSE (AI &amp; ML) — G.L. Bajaj Institute of Technology &amp; Management, AKTU (2022–2025)</p>
+            <p>Diploma in Computer Science — Amity University (2019–2022)</p>
+          </div>
+          <div>
+            <h3>Licenses &amp; certifications</h3>
+            <ul class="cred-list">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/imsajju/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Querying Databases with SQL</a
+                >
+                <span>Coursera · May 2025</span>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/imsajju/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >AMCAT Certified Business Analyst</a
+                >
+                <span>Aspiring Minds · Mar 2025 · ID 36114087-94</span>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/imsajju/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >AMCAT Certified Software Development Trainee</a
+                >
+                <span>Aspiring Minds · Mar 2025 · ID 36114087-166</span>
+              </li>
+              <li>
+                <a
+                  href="https://www.hackerrank.com/certificates/b35815f4803f"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Software Engineer Intern Certificate</a
+                >
+                <span>HackerRank · Nov 2024</span>
+              </li>
+              <li>
+                <a
+                  href="https://unstop.com/certificate-preview/1cebec94-318d-4035-bc5b-733536eed313"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >ModelWiz Round 2 — Machine Learning Basics (Excellence)</a
+                >
+                <span>Unstop · Sep 2024</span>
+              </li>
+              <li>
+                <a
+                  href="https://unstop.com/certificate-preview/09908d4c-c47c-4bac-a8f9-6b67913dc490"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >ModelWiz Round 3 — Kaggle Model Prediction</a
+                >
+                <span>Unstop · Sep 2024</span>
+              </li>
+              <li>
+                <a
+                  href="https://www.theforage.com/completion-certificates/Tata/9HDfiCrxQ3Bybaw6A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Tata Group — Data Visualisation Job Simulation</a
+                >
+                <span>Forage · Aug 2024</span>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/imsajju/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >C++ Programming — Beginner to Advance</a
+                >
+                <span>Udemy · Jul 2024</span>
+              </li>
+              <li>
+                <a href="#work" >ISO 27001 — organizational certification</a>
+                <span>Led end-to-end as CISO at Valura.AI</span>
+              </li>
+            </ul>
+            <a
+              class="cred-all"
+              href="https://www.linkedin.com/in/imsajju/details/certifications/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View all on LinkedIn →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="block connect" id="connect">
+        <div class="connect__panel">
+          <p class="eyebrow">Connect</p>
+          <h2>Need a sharper release gate?</h2>
+          <p>
+            Open to conversations on QA leadership, security-in-CI, ISO readiness, and AI-agent quality —
+            especially in fintech.
+          </p>
+          <div class="connect__links">
+            <a href="mailto:mdsajjaddbg2016@gmail.com">mdsajjaddbg2016@gmail.com</a>
+            <a href="tel:+917004452594">+91 70044 52594</a>
+            <a href="https://www.linkedin.com/in/imsajju/" target="_blank" rel="noopener noreferrer">linkedin.com/in/imsajju</a>
+            <a href="https://github.com/imsajju" target="_blank" rel="noopener noreferrer">github.com/imsajju</a>
+            <a href="https://www.instagram.com/sajju.ai/" target="_blank" rel="noopener noreferrer">instagram.com/sajju.ai</a>
+            <a href="/Md-Sajjad-Resume.pdf" download>Download PDF resume</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> Md Sajjad</span>
+      <span>Bengaluru</span>
+    </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
