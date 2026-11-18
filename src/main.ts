@@ -742,3 +742,32 @@ function initThemeToggle() {
 }
 
 initThemeToggle()
+
+/* ——— Resume: force download (GitHub Pages often ignores bare `download`) ——— */
+const RESUME_FILE = 'Md-Sajjad-Resume.pdf'
+
+async function downloadResume(event: Event) {
+  const link = event.currentTarget as HTMLAnchorElement
+  const url = link.href || asset(RESUME_FILE)
+  event.preventDefault()
+  try {
+    const res = await fetch(url, { cache: 'no-cache' })
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const blob = await res.blob()
+    const objectUrl = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = objectUrl
+    a.download = RESUME_FILE
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    URL.revokeObjectURL(objectUrl)
+  } catch {
+    window.open(url, '_blank', 'noopener')
+  }
+}
+
+document.querySelectorAll<HTMLAnchorElement>('a[href*="Md-Sajjad-Resume.pdf"]').forEach((a) => {
+  a.setAttribute('download', RESUME_FILE)
+  a.addEventListener('click', downloadResume)
+})
